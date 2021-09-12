@@ -1,0 +1,40 @@
+<div>
+  <form [formGroup]="usersForm" (ngSubmit)="OnSubmit()">
+    <div class="form-group">
+      <label for="exampleInputName">Name</label>
+      <input
+        type="text"
+        class="form-control"
+        id="exampleInputName"
+        placeholder="Name"
+        formControlName="name"
+        >
+    </div>
+    <div class="form-group">
+      <label for="exampleInputEmail1">Email address</label>
+      <input
+        type="email"
+        class="form-control"
+        id="exampleInputEmail1"
+        placeholder="Email"
+        formControlName="email"
+        >
+    </div>
+    <div class="form-group">
+      <label for="exampleInputContact">Contact</label>
+      <input
+        type="text"
+        class="form-control"
+        id="exampleInputContact"
+        placeholder="Contact"
+        formControlName="phone"
+        >
+    </div>
+
+    <button type="submit" class="btn btn-default" [disabled]="!usersForm.valid">{{ editMode ? 'Update' : 'Save'}}</button>
+    <button type="submit" class="btn btn-default" (click)="onClear()">Clear</button>
+  </form>
+  <hr>
+  <app-user-list></app-user-list>
+</div>
+

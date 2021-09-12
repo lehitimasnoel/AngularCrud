@@ -1,0 +1,14 @@
+<div class="panel panel-default" *ngIf="userDetails">
+  <!-- Default panel contents -->
+  <div class="panel-heading"> {{ userDetails.id}}. {{ userDetails.name}}</div>
+  <div class="panel-body">
+    <p>{{ userDetails.email }}</p>
+    <p>{{ userDetails.phone }}</p>
+    <p>{{ userDetails.address.street }}, {{ userDetails.address.city }} {{ userDetails.address.zipcode }} </p>
+  </div>
+</div>
+
+<div *ngIf="userDetails">
+  <button class="btn btn-default" routerLink="/users">Back</button>
+</div>
+
