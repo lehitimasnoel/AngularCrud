@@ -48,6 +48,7 @@ export class UserFormComponent implements OnInit {
             console.log(response);
             alert('Successfully added');
             this.userService.addList(response);
+            this.onClear();
           },
           err => {console.log(err);}
         )
@@ -57,6 +58,7 @@ export class UserFormComponent implements OnInit {
             console.log(response);
             alert('Successfully Updated')
             this.userService.updateList(response.id,response);
+            this.onClear();
           },
           err => {
             console.log(err);

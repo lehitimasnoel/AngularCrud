@@ -23,6 +23,8 @@ export class UserService {
     this.subUserLists = subUserList;
     this.userListChanged.emit(this.subUserLists);
   }
+
+  //Get Userlist by User ID return index
   getUserListByUserId(userId:number) {
     let lt_users = [];
     let indexID: number;
@@ -59,8 +61,6 @@ export class UserService {
 
   //Update UI
   updateList(index: number, subUserList: UserModel) {
-    console.log(this.subUserLists);
-    console.log(subUserList);
     this.subUserLists[this.getUserListByUserId(index)] = subUserList;
     this.userListChanged.emit(this.subUserLists.slice());
   }
@@ -69,12 +69,15 @@ export class UserService {
     return this.httpClient.get(this.url + 'users/' + id);
   }
 
-
-
-
-
-  deleteUserList(id: any) {
+  //Delete http
+  deleteUserList(id: number) {
     return this.httpClient.delete(this.url + 'users/' + id);
+  }
+
+  //Delete UI
+  deleteList(id: number) {
+    this.subUserLists.splice(this.getUserListByUserId(id),1);
+    this.userListChanged.emit(this.subUserLists.slice());
   }
 
   setUserValue(id: string) {
